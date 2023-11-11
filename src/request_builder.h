@@ -4,8 +4,8 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include "../include/tpnll.h"
 #include "nwk_constants.h"
-#include "string_manipulation.h"
 
 /**
  * Function that creates a request's option code from its unsigned short representation.

@@ -4,9 +4,8 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include "../include/tpnll.h"
 #include "nwk_constants.h"
-#include "logger.h"
-#include "chron.h"
 
 /**
  * Function reading a request content from a socket.

@@ -6,10 +6,8 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <string.h>
+#include "../include/tpnll.h"
 #include "nwk_constants.h"
-#include "string_manipulation.h"
-#include "logger.h"
-#include "chron.h"
 
 typedef struct sockaddr_in sockaddr_in;
 typedef struct hostent hostent;
