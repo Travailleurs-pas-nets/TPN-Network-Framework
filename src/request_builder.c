@@ -22,6 +22,8 @@ char *assembleOptionCode(unsigned short optionCode) {
         optionCodeString[i] = ' ';
     }
 
+    free(codeValue);
+    
     optionCodeString[NWK_OPTION_CODE_LENGTH] = '\0';
     return optionCodeString;
 }
