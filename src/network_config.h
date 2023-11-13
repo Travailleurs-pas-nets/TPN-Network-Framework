@@ -25,7 +25,7 @@ extern char *getMachineName();
  * 
  * TODO: Add examples.
  */
-extern hostent *retrieveHost();
+extern hostent *retrieveHost(int mode);
 
 /**
  * Will configure the local address to the given host and port.
