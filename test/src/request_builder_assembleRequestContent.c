@@ -8,7 +8,7 @@ typedef struct {
     unsigned short code;
     char *content;
     char *result;
-} AssembleRequestContentTestStruct;;
+} AssembleRequestContentTestStruct;
 
 AssembleRequestContentTestStruct assembleRequestContentTestValues[ASSEMBLE_REQUEST_CONTENT_TEST_VALUES_COUNT] = {
     { NWK_SRV_SUBSCRIBE, "MESSAGE_CONTENT", "00                      MESSAGE_CONTENT" },            // Normal case

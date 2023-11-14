@@ -7,14 +7,18 @@
 #include "network_config_configureLocalAddress.c"
 #include "request_builder_assembleOptionCode.c"
 #include "request_builder_assembleRequestContent.c"
+#include "request_handler_retrieveMessage.c"
+#include "request_parser_parseMessage.c"
 
 // Defining the list of tests to execute:
 static MunitTest test_array[] = {
-    { (char *) "/network_config/getMachineName", test_getMachineName, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/network_config/retrieveHost", test_retrieveHost, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/network_config/configureLocalAddress", test_configureLocalAddress, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/request_builder/assembleOptionCode", test_assembleOptionCode, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/request_builder/assembleRequestContent", test_assembleRequestContent, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/network_config/getMachineName         \t\t", test_getMachineName, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/network_config/retrieveHost           \t\t", test_retrieveHost, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/network_config/configureLocalAddress  \t\t", test_configureLocalAddress, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/request_builder/assembleOptionCode    \t\t", test_assembleOptionCode, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/request_builder/assembleRequestContent\t\t", test_assembleRequestContent, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/request_handler/retrieveMessage       \t\t", test_retrieveMessage, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/request_parser/parseMessage           \t\t", test_parseMessage, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
     
     // Last item must be this one (it is used to identify that this is the end of the list).
     { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
