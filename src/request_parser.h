@@ -12,4 +12,4 @@
  * 
  * TODO: Add examples.
  */
-extern char *parseMessage(char *messageBuffer, int *optionCode);
+extern char *parseMessage(char *messageBuffer, int *optionCode, int mode);

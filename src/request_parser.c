@@ -9,11 +9,16 @@
  * 
  * TODO: Add examples.
  */
-char *parseMessage(char *messageBuffer, int *optionCode) {
-    char *messageContent = strdup(messageBuffer + NWK_OPTION_CODE_LENGTH);
+char *parseMessage(char *messageBuffer, int *optionCode, int mode) {
+    if (strlen(messageBuffer) < NWK_OPTION_CODE_LENGTH) {
+        handleRuntimeError("Incorrect message format => string too short!", getTime(), mode);
+        return NULL;
+    }
 
-    messageBuffer[NWK_OPTION_CODE_LENGTH] = '\0';
-    sscanf(messageBuffer, "%d", optionCode);
+    char *code = strndup(messageBuffer, NWK_OPTION_CODE_LENGTH);
+    char *content = strdup(messageBuffer + NWK_OPTION_CODE_LENGTH);
 
-    return messageContent;
+    sscanf(code, "%d", optionCode);
+
+    return content;
 }

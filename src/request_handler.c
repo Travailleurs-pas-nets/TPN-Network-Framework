@@ -13,9 +13,9 @@
  */
 char *retrieveMessage(int transferSocket, int mode) {
     int messageLength;
-    char *messageBuffer = malloc(NWK_MAX_MESSAGE_LENGTH * sizeof(char));
+    char *messageBuffer = malloc(NWK_MAX_MESSAGE_LENGTH);
 
-    messageLength = read(transferSocket, messageBuffer, sizeof(messageBuffer));
+    messageLength = read(transferSocket, messageBuffer, NWK_MAX_MESSAGE_LENGTH);
     if (messageLength <= 0) {
         handleRuntimeError("Empty message received\n", getTime(), mode);
     }
