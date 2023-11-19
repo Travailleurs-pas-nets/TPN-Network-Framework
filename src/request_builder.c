@@ -7,7 +7,14 @@
 /**
  * Function that creates a request's option code from its unsigned short representation.
  * 
- * TODO: Add examples.
+ * ⚠️ WARNING: This function contains a hidden `malloc`, therefore, when you are done with the
+ * value, you should free its memory.
+ * 
+ * Example:
+ * ```c
+ * char *code = assembleOptionCode(NWK_CLI_SUBSCRIBED);
+ * free(code);
+ * ```
  */
 char *assembleOptionCode(unsigned short optionCode) {
     char *codeValue;
@@ -31,9 +38,19 @@ char *assembleOptionCode(unsigned short optionCode) {
 /**
  * Function that creates a request content from its code and message.
  * 
- * TODO: Add examples.
+ * ⚠️ WARNING: This function contains a hidden `malloc`, therefore, when you are done with the
+ * value, you should free its memory.
+ * 
+ * Example:
+ * ```c
+ * char *request_buffer = assembleRequestContent(NWK_CLI_SUBSCRIBED, "0");
+ * free(request_buffer);
+ * ```
  */
 char *assembleRequestContent(unsigned short optionCode, char *content) {
     char *optionCodeString = assembleOptionCode(optionCode);
-    return concat(2, optionCodeString, content);
+    char *requestContent = concat(2, optionCodeString, content);
+
+    free(optionCodeString);
+    return requestContent;
 }

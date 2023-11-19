@@ -7,7 +7,14 @@
 /**
  * Wrapper for the unix `gethostname()` function. This allows normalised calls to standard methods.
  * 
- * TODO: Add examples.
+ * ⚠️ WARNING: This function contains a hidden `malloc`, therefore, when you are done with the
+ * value, you should free its memory.
+ * 
+ * Example:
+ * ```c
+ * char *machine_name = getMachineName();
+ * free(machine_name);
+ * ```
  */
 char *getMachineName() {
     char *machineName = malloc(NWK_MAX_HOST_NAME_LENGTH + 1);
@@ -19,7 +26,14 @@ char *getMachineName() {
  * Function that will create and return a pointer towards the hostent.
  * It will throw a critical error if the retrieved host is null before return.
  * 
- * TODO: Add examples.
+ * ⚠️ WARNING: This function contains a hidden `malloc`, therefore, when you are done with the
+ * value, you should free its memory.
+ * 
+ * Example:
+ * ```c
+ * hostent *host = retrieveHost(LL_DEBUG);
+ * free(host);
+ * ```
  */
 hostent *retrieveHost(int mode) {
     hostent *host;
@@ -33,13 +47,20 @@ hostent *retrieveHost(int mode) {
         handleCriticalError(errorMessage, getTime(), mode);
     }
 
+    free(hostName);
     return host;
 }
 
 /**
  * Will configure the local address to the given host and port.
  * 
- * TODO: Add examples.
+ * Example:
+ * ```c
+ * hostent *host = retrieveHost(LL_DEBUG);
+ * sockaddr_in local_address = configureLocalAddress(host, 5000, NWK_SERVER);
+ * 
+ * free(host);
+ * ```
  */
 sockaddr_in configureLocalAddress(hostent *host, unsigned short port, unsigned short hostType) {
     sockaddr_in localAddress;
