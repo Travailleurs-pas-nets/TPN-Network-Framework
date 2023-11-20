@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Library containing the network configuration functions of the framework.
  */

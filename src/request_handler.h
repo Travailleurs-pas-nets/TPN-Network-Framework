@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Library containing the request handling functions of the framework.
  */

@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Library containing the request building functions of the framework.
  */
